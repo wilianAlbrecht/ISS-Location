@@ -1,6 +1,7 @@
 package com.albrecht.wilian.ISSLocation.resources;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,11 +14,12 @@ import com.google.gson.JsonParser;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class LocationResource {
 	
 	private RestTemplate restTemplate;
 	
-	@GetMapping("iss-location")
+	@GetMapping("/iss-location")
 	public ResponseEntity issLocation() {
 		
 		restTemplate = new RestTemplate();
